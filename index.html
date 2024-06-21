@@ -3,17 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do list</title>
+    <title></title>
     <link rel="stylesheet" href="CSS/style.css">
-    <script type="module" src="js/main.js" defer></script>
+    <script type="module" src="./js/main.js" defer></script>
 </head>
 <body>
     <header class="header">
         <h1>Just do it.</h1>
     </header>
     <section class="input">
-        <input id="input__search" type="text" placeholder="Search. . .">
-        <button>I Got This!</button>
+        <input id="input__search" type="text" placeholder="Add a task">
+        <button>I Got This!</button>"
+        <div class="date"> 
+            <div id = "datetime">
+                <script>
+                    function updateDateTime() {
+                    const now = new Date();
+                    const date = now.toLocaleDateString('es-ES', {
+                        year: 'numeric', 
+                        month: '2-digit', 
+                        day: '2-digit'
+                    });
+                    const time = now.toLocaleTimeString('es-ES', {
+                        hour: '2-digit', 
+                        minute: '2-digit', 
+                        second: '2-digit'
+                    });
+                    document.getElementById('datetime').innerText = `${date} ${time}`;
+                }
+        
+                setInterval(updateDateTime, 1000);
+                updateDateTime();
+                </script>
+            </div>
+        </div>
+    </section>
+    <section class="list">
+        <div class="origin">
+            <span>Exam JavaScript</span>
+            <div class="imagen">
+                <img src="./storage/Img/check.webp" alt="">
+                <img src="./storage/Img/trash.jpg" alt="">
+            </div>
+        </div>
+        <div class="hold">
+            <del>Exam JavaScript</del>
+            <div class="imagen">
+            <img src="./storage/Img/check.webp" alt="">
+            <img src="./storage/Img/trash.jpg" alt="">
+            </div>
+        </div>
+        <!-- <div class="hold">
+            <del>Exam JavaScript</del>
+            <div class="imagen">
+            <img src="./storage/Img/check.webp" alt="">
+            <img src="./storage/Img/trash.jpg" alt="">
+            </div>
+        </div>
+        <div class="hold">
+            <del>Exam JavaScript</del>
+            <div class="imagen">
+            <img src="./storage/Img/check.webp" alt="">
+            <img src="./storage/Img/trash.jpg" alt="">
+            </div>
+        </div>
+        <div class="hold">
+            <del>Exam JavaScript</del>
+            <div class="imagen">
+            <img src="./storage/Img/check.webp" alt="">
+            <img src="./storage/Img/trash.jpg" alt="">
+            </div>
+        </div>
+        <div class="hold">
+            <del>Exam JavaScript</del>
+            <div class="imagen">
+            <img src="./storage/Img/check.webp" alt="">
+            <img src="./storage/Img/trash.jpg" alt="">
+            </div>
+        </div>
+        <div class="hold">
+            <del>Exam JavaScript</del>
+            <div class="imagen">
+            <img src="./storage/Img/check.webp" alt="">
+            <img src="./storage/Img/trash.jpg" alt="">
+            </div>
+        </div> -->
     </section>
 </body>
 </html>

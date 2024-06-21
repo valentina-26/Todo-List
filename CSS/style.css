@@ -21,28 +21,105 @@ header{
 }
 
 .input input{
-    width: 266px;
-    height: 35px;
+    width: 400px;
+    height: 45px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     padding-left: 2.5rem;
     padding-right: 1.5rem;
     border: 0px solid ;
-    background-color: black;
-    opacity: .8;
+    background-color: #272829;
     position: relative;
 }
-    
+
 
 
 button{
     outline: none;
     width: px;
-    height: 35px;
+    height: 45px;
     padding-left: 2.5rem;
     padding-right: 1.5rem;
     border: 0px solid ;
     margin-left: -5px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+.date{
+    margin-top: 1%;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    margin-left: 40%;
+    overflow-y: scroll;
+    margin-top: 2%;
+}
+
+.origin{
+    background-color: #252729;
+    text-align: center;
+    display:flex;
+    align-items: center;
+    justify-content:center ;
+    gap: 15px;
+    width: 30%;
+    justify-content: space-between;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left: 10px;
+    padding-right:10px ;
+}
+
+.origin span{
+    color: white;
+}
+
+.hold{
+    background-color:#252729;
+    text-align: center;
+    display:flex;
+    align-items: center;
+    justify-content:center ;
+    gap: 15px;
+    width: 30%;
+    justify-content: space-between;
+    opacity: .6;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left: 10px;
+    padding-right:10px ;
+};
+
+.hold del {
+    color: white;
+}
+
+
+.imagen{
+    height: 50px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.imagen img {
+    width: 40px;
+    border-radius: 50%;
+  
+}
+
+.imagen img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
