@@ -4,6 +4,7 @@ body {
     margin: 0;
     height: 100vh;
     background: linear-gradient(to right, #5a6369, #1f3244);
+    overflow: hidden;
 }
 
 header{
@@ -58,6 +59,7 @@ button{
     margin-left: 40%;
     overflow-y: scroll;
     margin-top: 2%;
+    height: 55vh;
 }
 
 .origin{
@@ -75,6 +77,7 @@ button{
     border-bottom-left-radius: 10px;
     padding-left: 10px;
     padding-right:10px ;
+    margin-bottom: 15px;
 }
 
 .origin span{
@@ -91,13 +94,14 @@ button{
     width: 30%;
     justify-content: space-between;
     opacity: .6;
-    height: 100%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     padding-left: 10px;
     padding-right:10px ;
+    margin-bottom: 15px;
+    
 };
 
 .hold del {

@@ -1,27 +1,27 @@
-import {AddToDo} from "../js/module/crud.js"
+import {getAllOnHold,getAllready,AddToDo} from "../js/module/crud.js"
+import { galleryOnHold,galleryReady } from "./components/gallery.js";
+
+let ready = document.querySelector("#ready");
+let onhold = document.querySelector(".onhold");
+let input__search = document.querySelector("#input__search");
+let main_section = document.querySelector(".main_section")
 
 
-// async function menuPosts() {
-//     let menu = Number(prompt(`
-//         Post Menu:
-//         1. View All
-//         2. Add
-//         3. Delete
-//         4. Update
-//         0. Back
-//     `, 1));
+addEventListener("DOMContentLoaded", async () => {
+    let infoReady = await getAllready();
+    console.log(infoReady)
+    
+    ready.innerHTML = await galleryReady(infoReady);
+    
+    let infoHold = await getAllOnHold();
+    console.log(infoHold)
 
-//     if (menu == 1) {
-        
-//     }
-// }
+    onhold.innerHTML = await galleryOnHold(infoHold);
 
-const agregarTarea = async () => {
-    let act = {};
-    act.task = prompt("Ingrese la tarea:");
-    act.status = "On Hold";
-    let resultado = await AddToDo(act);
-    console.log(resultado);
-};
+    
+   
+})
 
-agregarTarea();
+
+
+

@@ -1,3 +1,29 @@
+export const getAllready = async () => {
+    const url = "https://6675edc6a8d2b4d072f1ee3d.mockapi.io/ToDoList";
+    const list = { method: "GET" };
+
+    let res = await fetch(url, list);
+    let data = await res.json();
+
+    
+    let filteredData = data.filter(item => item.status === "ready");
+    
+    return filteredData;
+};
+
+export const getAllOnHold = async () => {
+    const url = "https://6675edc6a8d2b4d072f1ee3d.mockapi.io/ToDoList";
+    const list = { method: "GET" };
+
+    let res = await fetch(url, list);
+    let data = await res.json();
+
+    
+    let filteredData = data.filter(item => item.status === "On hold");
+    
+    return filteredData;
+};
+
 export const AddToDo = async (arg) => {
     let val = await validarAgregarTarea(arg);
     if (val) return val;
