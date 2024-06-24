@@ -4,11 +4,15 @@ import { galleryOnHold,galleryReady } from "./components/gallery.js";
 let ready = document.querySelector("#ready");
 let onhold = document.querySelector(".onhold");
 let input__search = document.querySelector("#input__search");
+let button = document.querySelector("#button")
 let main_section = document.querySelector(".main_section")
 let space__index1 = document.querySelector(".list")
 
 
+
 addEventListener("DOMContentLoaded", async () => {
+
+    
     let infoReady = await getAllready();
     
     ready.innerHTML = await galleryReady(infoReady);
@@ -16,6 +20,7 @@ addEventListener("DOMContentLoaded", async () => {
     let infoHold = await getAllOnHold();
 
     onhold.innerHTML = await galleryOnHold(infoHold);
+    
 
     
 
@@ -33,7 +38,7 @@ addEventListener("DOMContentLoaded", async () => {
             try {
                     
                 const response = await AddToDo(todoData);
-                alert('Tarea agregada:', response);
+                console.log('Tarea agregada:', response);
 
                 
         
@@ -48,8 +53,40 @@ addEventListener("DOMContentLoaded", async () => {
                 location.reload();
             },100);
         }
+
     });
 
+
+    button.addEventListener("click", async e => {
+        const task = e.target.value; 
+
+        if (task.trim() !== "") { // Verifica que el valor no esté vacío
+        
+            const todoData = {
+                    task: task,
+                    status: "ready"
+                };
+        
+            try {
+                    
+                const response = await AddToDo(todoData);
+                console.log('Tarea agregada:', response);
+
+                
+        
+                main_section.innerHTML = await galleryReady(response); 
+                    
+            } catch (error) {
+                console.error('Error al agregar tarea:', error);
+                    
+            }
+
+            setTimeout (() =>{
+                location.reload();
+            },100);
+        }
+
+    });
 
     
     
@@ -68,7 +105,36 @@ addEventListener("DOMContentLoaded", async () => {
             }, 10); 
         })
     });
-})
+
+
+    //update
+    document.querySelectorAll("#check").forEach( readyBtn => {
+        readyBtn.addEventListener("click", async(e) => {
+            let dataId = e.target.dataset.id;
+            console.log(dataId);
+
+            await Update(dataId,{status:"ready"});
+            await getAllready();  
+
+
+        })
+    })
+
+}) 
 
 
 
+//time
+const dateTimeParagraph = document.querySelector('#time');
+
+function updateDateTime() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true};
+    const formattedDateTime = now.toLocaleDateString('es-CO', options);
+
+    dateTimeParagraph.textContent = formattedDateTime;
+}
+
+updateDateTime();
+
+setInterval(updateDateTime, 1000);

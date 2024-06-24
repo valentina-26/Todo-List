@@ -45,7 +45,7 @@ export const Update = async (id, status) => {
     const options = {
         method: "PUT",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ status }),
+        body: JSON.stringify( {status} ),
     };
 
     try {

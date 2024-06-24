@@ -30,18 +30,4 @@ export const galleryOnHold = async (infoHold) => {
     return plantilla;
 };
 
-
-// export const TaskSinB = (OnHold) => {
-//     let plantilla = "";
-
-//     plantilla += /*html*/`
-//         <article class="Search__bar2">
-//             <p>${OnHold}</p>
-//             <div class="check">
-//                 <img src="storage/img/check.webp">
-//                 <img src="storage/img/trash.webp">
-//             </div>
-//         </article>`;
-
-//     return plantilla;
-// };
+//hacer condicional que validesi es ready talhtml y si no el otro

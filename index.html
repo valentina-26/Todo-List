@@ -13,30 +13,8 @@
     </header>
     <section class="input">
         <input id="input__search" type="text" placeholder="Add a task">
-        <button>I Got This!</button>"
-        <div class="date"> 
-            <div id = "datetime">
-                <script>
-                    function updateDateTime() {
-                    const now = new Date();
-                    const date = now.toLocaleDateString('es-ES', {
-                        year: 'numeric', 
-                        month: '2-digit', 
-                        day: '2-digit'
-                    });
-                    const time = now.toLocaleTimeString('es-ES', {
-                        hour: '2-digit', 
-                        minute: '2-digit', 
-                        second: '2-digit'
-                    });
-                    document.getElementById('datetime').innerText = `${date} ${time}`;
-                }
-        
-                setInterval(updateDateTime, 1000);
-                updateDateTime();
-                </script>
-            </div>
-        </div>
+        <button id="button">I Got This!</button>
+        <p id="time"></p>
     </section>
     <section id ="main_section"class="list">
 

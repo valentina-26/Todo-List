@@ -58,8 +58,14 @@ button{
     text-align: center;
     margin-left: 40%;
     overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
     margin-top: 2%;
     height: 55vh;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .origin{
