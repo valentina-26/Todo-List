@@ -61,7 +61,7 @@ button{
     overflow-x: hidden;
     -ms-overflow-style: none;
     margin-top: 2%;
-    height: 55vh;
+    height: 45vh;
 }
 
 ::-webkit-scrollbar {

@@ -7,8 +7,8 @@ export const getAllready = async () => {
 
     
     let filteredData = data.filter(item => item.status === "ready");
-    
-    return filteredData;
+    let definitiveData = filteredData.reverse()
+    return definitiveData;
 };
 
 export const getAllOnHold = async () => {
@@ -20,8 +20,8 @@ export const getAllOnHold = async () => {
 
     
     let filteredData = data.filter(item => item.status === "On hold");
-    
-    return filteredData;
+    let definitiveData = filteredData.reverse()
+    return definitiveData;
 };
 
 export const AddToDo = async (arg) => {

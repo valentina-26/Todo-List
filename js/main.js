@@ -112,12 +112,17 @@ addEventListener("DOMContentLoaded", async () => {
         readyBtn.addEventListener("click", async(e) => {
             let dataId = e.target.dataset.id;
             console.log(dataId);
+            let status = "On hold"
 
-            await Update(dataId,{status:"ready"});
+            await Update(dataId, status);
             await getAllready();  
+            setTimeout(() => {
+                location.reload();
+            }, 10); 
 
 
         })
+        
     })
 
 }) 
