@@ -5,20 +5,19 @@ let ready = document.querySelector("#ready");
 let onhold = document.querySelector(".onhold");
 let input__search = document.querySelector("#input__search");
 let main_section = document.querySelector(".main_section")
+let space__index1 = document.querySelector(".list")
 
 
 addEventListener("DOMContentLoaded", async () => {
     let infoReady = await getAllready();
-    console.log(infoReady)
     
     ready.innerHTML = await galleryReady(infoReady);
     
     let infoHold = await getAllOnHold();
-    console.log(infoHold)
 
     onhold.innerHTML = await galleryOnHold(infoHold);
 
-    infoReady();
+    
 
     //agregar
     input__search.addEventListener("change", async e => {
@@ -52,27 +51,24 @@ addEventListener("DOMContentLoaded", async () => {
     });
 
 
-    //cambiar
-    space__index1.addEventListener("click", async (e) => {
-        if (e.target.classList.contains("check")) {
-            const id = e.target.dataset.id;
-            await Update(id, 'ready');
-            await infoReady(); 
-        }
-    });
-
-
+    
+    
     //eliminar
-    document.addEventListener("click", async (e) => {
-        if (e.target.classList.contains("trash")) {
-            const id = e.target.dataset.id;
-            await deleteTask(id);
-            await infoReady(); // Actualizar la lista de tareas
-        }
+    document.querySelectorAll("#trash").forEach(basuraBtn => {
+        basuraBtn.addEventListener("click", async (e) => {
+            let dataId = e.target.dataset.id;
+            
+            await deleteTask(dataId);
+            // console.log("eliminado")
+            await getAllOnHold();
+            e.target.parentElement.parentElement.remove();
+            
+            setTimeout(() => {
+                location.reload();
+            }, 10); 
+        })
     });
-
 })
-
 
 
 

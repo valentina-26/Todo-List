@@ -6,8 +6,8 @@ export const galleryReady = async (infoReady) => {
         <div id= "main_section_ready"class="origin">
             <span>${infoReady[i].task}</span>
             <div class="imagen">
-                <img src="./storage/Img/check.webp" alt="">
-                <img src="./storage/Img/trash.jpg" alt="">
+                <img id ="check"src="./storage/Img/check.webp" alt="" data-id="${infoReady[i].id}" >
+                <img id ="trash"src="./storage/Img/trash.jpg" alt="" data-id="${infoReady[i].id}">
             </div>
         </div>`;
     }
@@ -22,8 +22,8 @@ export const galleryOnHold = async (infoHold) => {
         <div class="hold">
             <del>${infoHold[i].task}</del>
             <div class="imagen">
-                <img src="./storage/Img/check.webp" alt="check" data-id="${infoHold[i].id}">
-                <img src="./storage/Img/trash.jpg" alt="trash" data-id="${infoHold[i].id}">
+                <img id="check"src="./storage/Img/check.webp" alt="check" data-id="${infoHold[i].id}">
+                <img id="trash"src="./storage/Img/trash.jpg" alt="trash" data-id="${infoHold[i].id}">
             </div>
         </div>`;
     }
