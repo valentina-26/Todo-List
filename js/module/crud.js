@@ -39,18 +39,40 @@ export const AddToDo = async (arg) => {
     return data;
 };
 
-export const deleteTask = async (arg) => {
-    let val = await validarEliminarTarea(arg);
-    if (val) return val;
-    
-    let config = {
-        method: "DELETE",
+// PUT
+export const Update = async (id, status) => {
+    const url = `https://6675edc6a8d2b4d072f1ee3d.mockapi.io/ToDoList/${id}`;
+    const options = {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ status }),
     };
 
-    let res = await fetch(`https://6675edc6a8d2b4d072f1ee3d.mockapi.io/ToDoList/${arg.id}`, config);
+    try {
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error changing status to ready:", error);
+    }
+};
+
+
+// DELETE
+export const deleteTask = async(id) => {
+    const url = `https://6675edc6a8d2b4d072f1ee3d.mockapi.io/ToDoList/${id}`;
+    const options = { 
+        method: "DELETE",
+        headers: {"content-type": "application/json"},
+    };
+
+    let res = await fetch(url, options);
     let data = await res.json();
     return data;
-};
+}
 
 
 

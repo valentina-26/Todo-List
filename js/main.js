@@ -1,4 +1,4 @@
-import {getAllOnHold,getAllready,AddToDo} from "../js/module/crud.js"
+import {getAllOnHold,getAllready,AddToDo,deleteTask,Update} from "../js/module/crud.js"
 import { galleryOnHold,galleryReady } from "./components/gallery.js";
 
 let ready = document.querySelector("#ready");
@@ -18,7 +18,9 @@ addEventListener("DOMContentLoaded", async () => {
 
     onhold.innerHTML = await galleryOnHold(infoHold);
 
-    
+    infoReady();
+
+    //agregar
     input__search.addEventListener("change", async e => {
         const task = e.target.value; 
 
@@ -46,6 +48,26 @@ addEventListener("DOMContentLoaded", async () => {
             setTimeout (() =>{
                 location.reload();
             },100);
+        }
+    });
+
+
+    //cambiar
+    space__index1.addEventListener("click", async (e) => {
+        if (e.target.classList.contains("check")) {
+            const id = e.target.dataset.id;
+            await Update(id, 'ready');
+            await infoReady(); 
+        }
+    });
+
+
+    //eliminar
+    document.addEventListener("click", async (e) => {
+        if (e.target.classList.contains("trash")) {
+            const id = e.target.dataset.id;
+            await deleteTask(id);
+            await infoReady(); // Actualizar la lista de tareas
         }
     });
 
