@@ -19,7 +19,36 @@ addEventListener("DOMContentLoaded", async () => {
     onhold.innerHTML = await galleryOnHold(infoHold);
 
     
-   
+    input__search.addEventListener("change", async e => {
+        const task = e.target.value; 
+
+        if (task.trim() !== "") { // Verifica que el valor no esté vacío
+        
+            const todoData = {
+                    task: task,
+                    status: "ready"
+                };
+        
+            try {
+                    
+                const response = await AddToDo(todoData);
+                alert('Tarea agregada:', response);
+
+                
+        
+                main_section.innerHTML = await galleryReady(response); 
+                    
+            } catch (error) {
+                console.error('Error al agregar tarea:', error);
+                    
+            }
+
+            setTimeout (() =>{
+                location.reload();
+            },100);
+        }
+    });
+
 })
 
 

@@ -52,6 +52,8 @@ export const deleteTask = async (arg) => {
     return data;
 };
 
+
+
 // Validaciones
 const validarAgregarTarea = async (act) => {
     if (typeof act.task !== "string" || act.task === undefined) {
